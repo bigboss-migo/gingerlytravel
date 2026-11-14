@@ -46,7 +46,7 @@ type ContentRelationshipFieldWithData<
 		>
 }[Exclude<TCustomType[number], string>["id"]];
 
-type HomepageDocumentDataSlicesSlice = HeroSlice
+type HomepageDocumentDataSlicesSlice = HeroSlice | ServicesSlice
 
 /**
  * Content for Homepage documents
@@ -373,6 +373,129 @@ type HeroSliceVariation = HeroSliceDefault
  */
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 
+/**
+ * Item in *Services → Default → Primary → Service cards*
+ */
+export interface ServicesSliceDefaultPrimaryCardsItem {
+	/**
+	 * Icon field in *Services → Default → Primary → Service cards*
+	 *
+	 * - **Field Type**: Select
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: services.default.primary.cards[].icon
+	 * - **Documentation**: https://prismic.io/docs/fields/select
+	 */
+	icon: prismic.SelectField<"cruise" | "plane" | "resort" | "group" | "compass" | "star" | "hotel" | "pin">;
+	
+	/**
+	 * Card title field in *Services → Default → Primary → Service cards*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: services.default.primary.cards[].title
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	title: prismic.KeyTextField;
+	
+	/**
+	 * Card description field in *Services → Default → Primary → Service cards*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: services.default.primary.cards[].description
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	description: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *Services → Default → Primary*
+ */
+export interface ServicesSliceDefaultPrimary {
+	/**
+	 * Eyebrow field in *Services → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: services.default.primary.eyebrow
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	eyebrow: prismic.KeyTextField;
+	
+	/**
+	 * Title (italic = coral word) field in *Services → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: services.default.primary.title
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	title: prismic.RichTextField;
+	
+	/**
+	 * Intro text field in *Services → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: services.default.primary.lead
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	lead: prismic.RichTextField;
+	
+	/**
+	 * Service cards field in *Services → Default → Primary*
+	 *
+	 * - **Field Type**: Group
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: services.default.primary.cards[]
+	 * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+	 */
+	cards: prismic.GroupField<Simplify<ServicesSliceDefaultPrimaryCardsItem>>;
+	
+	/**
+	 * Callout heading (italic = highlight) field in *Services → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: services.default.primary.callout_heading
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	callout_heading: prismic.RichTextField;
+	
+	/**
+	 * Callout button label field in *Services → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: services.default.primary.callout_button_label
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	callout_button_label: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for Services Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ServicesSliceDefault = prismic.SharedSliceVariation<"default", Simplify<ServicesSliceDefaultPrimary>, never>;
+
+/**
+ * Slice variation for *Services*
+ */
+type ServicesSliceVariation = ServicesSliceDefault
+
+/**
+ * Services Shared Slice
+ *
+ * - **API ID**: `services`
+ * - **Description**: *None*
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ServicesSlice = prismic.SharedSlice<"services", ServicesSliceVariation>;
+
 declare module "@prismicio/client" {
 	interface CreateClient {
 		(repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
@@ -397,7 +520,12 @@ declare module "@prismicio/client" {
 			HeroSlice,
 			HeroSliceDefaultPrimary,
 			HeroSliceVariation,
-			HeroSliceDefault
+			HeroSliceDefault,
+			ServicesSlice,
+			ServicesSliceDefaultPrimaryCardsItem,
+			ServicesSliceDefaultPrimary,
+			ServicesSliceVariation,
+			ServicesSliceDefault
 		}
 	}
 }

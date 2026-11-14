@@ -1,0 +1,86 @@
+{
+  "id": "services",
+  "name": "Services",
+  "type": "SharedSlice",
+  "variations": [
+    {
+      "description": "Default",
+      "docURL": "",
+      "id": "default",
+      "imageUrl": "",
+      "name": "Default",
+      "primary": {
+        "eyebrow": {
+          "config": {
+            "label": "Eyebrow"
+          },
+          "type": "Text"
+        },
+        "title": {
+          "config": {
+            "label": "Title (italic = coral word)",
+            "single": "heading2,em"
+          },
+          "type": "StructuredText"
+        },
+        "lead": {
+          "config": {
+            "label": "Intro text",
+            "single": "paragraph"
+          },
+          "type": "StructuredText"
+        },
+        "cards": {
+          "config": {
+            "fields": {
+              "icon": {
+                "config": {
+                  "label": "Icon",
+                  "options": [
+                    "cruise",
+                    "plane",
+                    "resort",
+                    "group",
+                    "compass",
+                    "star",
+                    "hotel",
+                    "pin"
+                  ]
+                },
+                "type": "Select"
+              },
+              "title": {
+                "config": {
+                  "label": "Card title"
+                },
+                "type": "Text"
+              },
+              "description": {
+                "config": {
+                  "label": "Card description"
+                },
+                "type": "Text"
+              }
+            },
+            "label": "Service cards"
+          },
+          "type": "Group"
+        },
+        "callout_heading": {
+          "config": {
+            "label": "Callout heading (italic = highlight)",
+            "single": "heading3,em"
+          },
+          "type": "StructuredText"
+        },
+        "callout_button_label": {
+          "config": {
+            "label": "Callout button label"
+          },
+          "type": "Text"
+        }
+      },
+      "version": ""
+    }
+  ]
+}
