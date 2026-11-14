@@ -1,0 +1,80 @@
+{
+  "format": "custom",
+  "id": "settings",
+  "json": {
+    "Main": {
+      "brand_name": {
+        "config": {
+          "label": "Brand name"
+        },
+        "type": "Text"
+      },
+      "brand_subtitle": {
+        "config": {
+          "label": "Brand subtitle"
+        },
+        "type": "Text"
+      },
+      "tagline": {
+        "config": {
+          "label": "Tagline"
+        },
+        "type": "Text"
+      },
+      "phone": {
+        "config": {
+          "label": "Phone number"
+        },
+        "type": "Text"
+      },
+      "email": {
+        "config": {
+          "label": "Email address"
+        },
+        "type": "Text"
+      },
+      "logo": {
+        "config": {
+          "label": "Logo"
+        },
+        "type": "Image"
+      },
+      "nav_button_label": {
+        "config": {
+          "label": "Nav button text"
+        },
+        "type": "Text"
+      },
+      "legal_name": {
+        "config": {
+          "label": "Business name (footer)"
+        },
+        "type": "Text"
+      },
+      "photo_credits": {
+        "config": {
+          "label": "Photo credits",
+          "multi": "paragraph,hyperlink"
+        },
+        "type": "StructuredText"
+      },
+      "site_by_label": {
+        "config": {
+          "label": "Site by (name)"
+        },
+        "type": "Text"
+      },
+      "site_by_link": {
+        "config": {
+          "allowTargetBlank": true,
+          "label": "Site by (link)",
+          "select": "web"
+        },
+        "type": "Link"
+      }
+    }
+  },
+  "label": "Settings",
+  "repeatable": false,
+  "status": true
+}

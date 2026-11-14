@@ -1,0 +1,9 @@
+{
+  "repositoryName": "gingerly-travels",
+  "routes": [
+    {
+      "type": "homepage",
+      "path": "/"
+    }
+  ]
+}
