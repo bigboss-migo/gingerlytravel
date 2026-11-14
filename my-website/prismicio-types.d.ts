@@ -46,7 +46,7 @@ type ContentRelationshipFieldWithData<
 		>
 }[Exclude<TCustomType[number], string>["id"]];
 
-type HomepageDocumentDataSlicesSlice = HeroSlice | ServicesSlice
+type HomepageDocumentDataSlicesSlice = HeroSlice | ServicesSlice | RibbonSlice | DestinationsSlice
 
 /**
  * Content for Homepage documents
@@ -246,6 +246,139 @@ export type SettingsDocument<Lang extends string = string> = prismic.PrismicDocu
 export type AllDocumentTypes = HomepageDocument | SettingsDocument;
 
 /**
+ * Item in *Destinations → Default → Primary → Destination tiles*
+ */
+export interface DestinationsSliceDefaultPrimaryTilesItem {
+	/**
+	 * Small label field in *Destinations → Default → Primary → Destination tiles*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: destinations.default.primary.tiles[].small_label
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	small_label: prismic.KeyTextField;
+	
+	/**
+	 * Title field in *Destinations → Default → Primary → Destination tiles*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: destinations.default.primary.tiles[].title
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	title: prismic.KeyTextField;
+	
+	/**
+	 * Description field in *Destinations → Default → Primary → Destination tiles*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: destinations.default.primary.tiles[].description
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	description: prismic.KeyTextField;
+	
+	/**
+	 * Photo field in *Destinations → Default → Primary → Destination tiles*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: destinations.default.primary.tiles[].photo
+	 * - **Documentation**: https://prismic.io/docs/fields/image
+	 */
+	photo: prismic.ImageField<never>;
+	
+	/**
+	 * Tile size field in *Destinations → Default → Primary → Destination tiles*
+	 *
+	 * - **Field Type**: Select
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: destinations.default.primary.tiles[].size
+	 * - **Documentation**: https://prismic.io/docs/fields/select
+	 */
+	size: prismic.SelectField<"big" | "normal" | "wide">;
+}
+
+/**
+ * Primary content in *Destinations → Default → Primary*
+ */
+export interface DestinationsSliceDefaultPrimary {
+	/**
+	 * Eyebrow field in *Destinations → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: destinations.default.primary.eyebrow
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	eyebrow: prismic.KeyTextField;
+	
+	/**
+	 * Title (italic = coral word) field in *Destinations → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: destinations.default.primary.title
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	title: prismic.RichTextField;
+	
+	/**
+	 * Intro text field in *Destinations → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: destinations.default.primary.lead
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	lead: prismic.RichTextField;
+	
+	/**
+	 * Destination tiles field in *Destinations → Default → Primary*
+	 *
+	 * - **Field Type**: Group
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: destinations.default.primary.tiles[]
+	 * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+	 */
+	tiles: prismic.GroupField<Simplify<DestinationsSliceDefaultPrimaryTilesItem>>;
+	
+	/**
+	 * Photo note (small text under tiles) field in *Destinations → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: destinations.default.primary.photo_note
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	photo_note: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for Destinations Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type DestinationsSliceDefault = prismic.SharedSliceVariation<"default", Simplify<DestinationsSliceDefaultPrimary>, never>;
+
+/**
+ * Slice variation for *Destinations*
+ */
+type DestinationsSliceVariation = DestinationsSliceDefault
+
+/**
+ * Destinations Shared Slice
+ *
+ * - **API ID**: `destinations`
+ * - **Description**: *None*
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type DestinationsSlice = prismic.SharedSlice<"destinations", DestinationsSliceVariation>;
+
+/**
  * Primary content in *Hero → Default → Primary*
  */
 export interface HeroSliceDefaultPrimary {
@@ -372,6 +505,59 @@ type HeroSliceVariation = HeroSliceDefault
  * - **Documentation**: https://prismic.io/docs/slices
  */
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
+
+/**
+ * Item in *Ribbon → Default → Primary → Keywords*
+ */
+export interface RibbonSliceDefaultPrimaryKeywordsItem {
+	/**
+	 * Keyword field in *Ribbon → Default → Primary → Keywords*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: ribbon.default.primary.keywords[].label
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	label: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *Ribbon → Default → Primary*
+ */
+export interface RibbonSliceDefaultPrimary {
+	/**
+	 * Keywords field in *Ribbon → Default → Primary*
+	 *
+	 * - **Field Type**: Group
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: ribbon.default.primary.keywords[]
+	 * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+	 */
+	keywords: prismic.GroupField<Simplify<RibbonSliceDefaultPrimaryKeywordsItem>>;
+}
+
+/**
+ * Default variation for Ribbon Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type RibbonSliceDefault = prismic.SharedSliceVariation<"default", Simplify<RibbonSliceDefaultPrimary>, never>;
+
+/**
+ * Slice variation for *Ribbon*
+ */
+type RibbonSliceVariation = RibbonSliceDefault
+
+/**
+ * Ribbon Shared Slice
+ *
+ * - **API ID**: `ribbon`
+ * - **Description**: *None*
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type RibbonSlice = prismic.SharedSlice<"ribbon", RibbonSliceVariation>;
 
 /**
  * Item in *Services → Default → Primary → Service cards*
@@ -517,10 +703,20 @@ declare module "@prismicio/client" {
 			SettingsDocument,
 			SettingsDocumentData,
 			AllDocumentTypes,
+			DestinationsSlice,
+			DestinationsSliceDefaultPrimaryTilesItem,
+			DestinationsSliceDefaultPrimary,
+			DestinationsSliceVariation,
+			DestinationsSliceDefault,
 			HeroSlice,
 			HeroSliceDefaultPrimary,
 			HeroSliceVariation,
 			HeroSliceDefault,
+			RibbonSlice,
+			RibbonSliceDefaultPrimaryKeywordsItem,
+			RibbonSliceDefaultPrimary,
+			RibbonSliceVariation,
+			RibbonSliceDefault,
 			ServicesSlice,
 			ServicesSliceDefaultPrimaryCardsItem,
 			ServicesSliceDefaultPrimary,

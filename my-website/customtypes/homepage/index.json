@@ -11,6 +11,12 @@
             },
             "services": {
               "type": "SharedSlice"
+            },
+            "ribbon": {
+              "type": "SharedSlice"
+            },
+            "destinations": {
+              "type": "SharedSlice"
             }
           }
         },

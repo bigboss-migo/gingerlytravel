@@ -1,0 +1,31 @@
+{
+  "id": "ribbon",
+  "name": "Ribbon",
+  "type": "SharedSlice",
+  "variations": [
+    {
+      "description": "Default",
+      "docURL": "",
+      "id": "default",
+      "imageUrl": "",
+      "name": "Default",
+      "primary": {
+        "keywords": {
+          "config": {
+            "fields": {
+              "label": {
+                "config": {
+                  "label": "Keyword"
+                },
+                "type": "Text"
+              }
+            },
+            "label": "Keywords"
+          },
+          "type": "Group"
+        }
+      },
+      "version": ""
+    }
+  ]
+}

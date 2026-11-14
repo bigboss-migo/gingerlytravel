@@ -1,0 +1,86 @@
+{
+  "id": "destinations",
+  "name": "Destinations",
+  "type": "SharedSlice",
+  "variations": [
+    {
+      "description": "Default",
+      "docURL": "",
+      "id": "default",
+      "imageUrl": "",
+      "name": "Default",
+      "primary": {
+        "eyebrow": {
+          "config": {
+            "label": "Eyebrow"
+          },
+          "type": "Text"
+        },
+        "title": {
+          "config": {
+            "label": "Title (italic = coral word)",
+            "single": "heading2,em"
+          },
+          "type": "StructuredText"
+        },
+        "lead": {
+          "config": {
+            "label": "Intro text",
+            "single": "paragraph"
+          },
+          "type": "StructuredText"
+        },
+        "tiles": {
+          "config": {
+            "fields": {
+              "small_label": {
+                "config": {
+                  "label": "Small label"
+                },
+                "type": "Text"
+              },
+              "title": {
+                "config": {
+                  "label": "Title"
+                },
+                "type": "Text"
+              },
+              "description": {
+                "config": {
+                  "label": "Description"
+                },
+                "type": "Text"
+              },
+              "photo": {
+                "config": {
+                  "label": "Photo"
+                },
+                "type": "Image"
+              },
+              "size": {
+                "config": {
+                  "label": "Tile size",
+                  "options": [
+                    "big",
+                    "normal",
+                    "wide"
+                  ]
+                },
+                "type": "Select"
+              }
+            },
+            "label": "Destination tiles"
+          },
+          "type": "Group"
+        },
+        "photo_note": {
+          "config": {
+            "label": "Photo note (small text under tiles)"
+          },
+          "type": "Text"
+        }
+      },
+      "version": ""
+    }
+  ]
+}
