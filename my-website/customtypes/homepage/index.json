@@ -32,6 +32,9 @@
             },
             "spotlight": {
               "type": "SharedSlice"
+            },
+            "contact": {
+              "type": "SharedSlice"
             }
           }
         },

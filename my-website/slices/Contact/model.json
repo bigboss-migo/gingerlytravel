@@ -1,0 +1,73 @@
+{
+  "id": "contact",
+  "name": "Contact",
+  "type": "SharedSlice",
+  "variations": [
+    {
+      "description": "Default",
+      "docURL": "",
+      "id": "default",
+      "imageUrl": "",
+      "name": "Default",
+      "primary": {
+        "eyebrow": {
+          "config": {
+            "label": "Eyebrow"
+          },
+          "type": "Text"
+        },
+        "title": {
+          "config": {
+            "label": "Title (italic = coral)",
+            "single": "heading2,em"
+          },
+          "type": "StructuredText"
+        },
+        "lead": {
+          "config": {
+            "label": "Intro text",
+            "single": "paragraph"
+          },
+          "type": "StructuredText"
+        },
+        "call_label": {
+          "config": {
+            "label": "Phone row label"
+          },
+          "type": "Text"
+        },
+        "email_label": {
+          "config": {
+            "label": "Email row label"
+          },
+          "type": "Text"
+        },
+        "form_heading": {
+          "config": {
+            "label": "Form heading"
+          },
+          "type": "Text"
+        },
+        "form_intro": {
+          "config": {
+            "label": "Form intro"
+          },
+          "type": "Text"
+        },
+        "submit_label": {
+          "config": {
+            "label": "Submit button label"
+          },
+          "type": "Text"
+        },
+        "fine_print": {
+          "config": {
+            "label": "Fine print (phone number is added automatically)"
+          },
+          "type": "Text"
+        }
+      },
+      "version": ""
+    }
+  ]
+}
