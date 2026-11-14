@@ -3,15 +3,19 @@
 import Destinations from "./Destinations";
 import Ebook from "./Ebook";
 import Hero from "./Hero";
+import HowItWorks from "./HowItWorks";
 import RealEstate from "./RealEstate";
 import Ribbon from "./Ribbon";
 import Services from "./Services";
+import Testimonials from "./Testimonials";
 
 export const components = {
 	destinations: Destinations,
 	ebook: Ebook,
 	hero: Hero,
+	how_it_works: HowItWorks,
 	real_estate: RealEstate,
 	ribbon: Ribbon,
-	services: Services
+	services: Services,
+	testimonials: Testimonials
 };

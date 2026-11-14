@@ -46,7 +46,7 @@ type ContentRelationshipFieldWithData<
 		>
 }[Exclude<TCustomType[number], string>["id"]];
 
-type HomepageDocumentDataSlicesSlice = HeroSlice | ServicesSlice | RibbonSlice | DestinationsSlice | RealEstateSlice | EbookSlice
+type HomepageDocumentDataSlicesSlice = HeroSlice | ServicesSlice | RibbonSlice | DestinationsSlice | RealEstateSlice | EbookSlice | HowItWorksSlice | TestimonialsSlice
 
 /**
  * Content for Homepage documents
@@ -650,6 +650,89 @@ type HeroSliceVariation = HeroSliceDefault
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 
 /**
+ * Item in *How It Works → Default → Primary → Steps*
+ */
+export interface HowItWorksSliceDefaultPrimaryStepsItem {
+	/**
+	 * Step title field in *How It Works → Default → Primary → Steps*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: how_it_works.default.primary.steps[].title
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	title: prismic.KeyTextField;
+	
+	/**
+	 * Step text field in *How It Works → Default → Primary → Steps*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: how_it_works.default.primary.steps[].text
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	text: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *How It Works → Default → Primary*
+ */
+export interface HowItWorksSliceDefaultPrimary {
+	/**
+	 * Eyebrow field in *How It Works → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: how_it_works.default.primary.eyebrow
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	eyebrow: prismic.KeyTextField;
+	
+	/**
+	 * Title (italic = coral) field in *How It Works → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: how_it_works.default.primary.title
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	title: prismic.RichTextField;
+	
+	/**
+	 * Steps field in *How It Works → Default → Primary*
+	 *
+	 * - **Field Type**: Group
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: how_it_works.default.primary.steps[]
+	 * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+	 */
+	steps: prismic.GroupField<Simplify<HowItWorksSliceDefaultPrimaryStepsItem>>;
+}
+
+/**
+ * Default variation for How It Works Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type HowItWorksSliceDefault = prismic.SharedSliceVariation<"default", Simplify<HowItWorksSliceDefaultPrimary>, never>;
+
+/**
+ * Slice variation for *How It Works*
+ */
+type HowItWorksSliceVariation = HowItWorksSliceDefault
+
+/**
+ * How It Works Shared Slice
+ *
+ * - **API ID**: `how_it_works`
+ * - **Description**: *None*
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type HowItWorksSlice = prismic.SharedSlice<"how_it_works", HowItWorksSliceVariation>;
+
+/**
  * Item in *Real Estate → Default → Primary → Three key points*
  */
 export interface RealEstateSliceDefaultPrimaryKeysItem {
@@ -958,6 +1041,129 @@ type ServicesSliceVariation = ServicesSliceDefault
  */
 export type ServicesSlice = prismic.SharedSlice<"services", ServicesSliceVariation>;
 
+/**
+ * Item in *Testimonials → Default → Primary → Reviews*
+ */
+export interface TestimonialsSliceDefaultPrimaryReviewsItem {
+	/**
+	 * Tag (e.g. EXAMPLE; clear for real reviews) field in *Testimonials → Default → Primary → Reviews*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: testimonials.default.primary.reviews[].tag
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	tag: prismic.KeyTextField;
+	
+	/**
+	 * Quote (no quotation marks) field in *Testimonials → Default → Primary → Reviews*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: testimonials.default.primary.reviews[].quote
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	quote: prismic.KeyTextField;
+	
+	/**
+	 * Stars field in *Testimonials → Default → Primary → Reviews*
+	 *
+	 * - **Field Type**: Select
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: testimonials.default.primary.reviews[].stars
+	 * - **Documentation**: https://prismic.io/docs/fields/select
+	 */
+	stars: prismic.SelectField<"5" | "4" | "3">;
+	
+	/**
+	 * Name and trip field in *Testimonials → Default → Primary → Reviews*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: testimonials.default.primary.reviews[].who
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	who: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *Testimonials → Default → Primary*
+ */
+export interface TestimonialsSliceDefaultPrimary {
+	/**
+	 * Eyebrow field in *Testimonials → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: testimonials.default.primary.eyebrow
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	eyebrow: prismic.KeyTextField;
+	
+	/**
+	 * Title (italic = coral) field in *Testimonials → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: testimonials.default.primary.title
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	title: prismic.RichTextField;
+	
+	/**
+	 * Intro text field in *Testimonials → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: testimonials.default.primary.lead
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	lead: prismic.RichTextField;
+	
+	/**
+	 * Reviews field in *Testimonials → Default → Primary*
+	 *
+	 * - **Field Type**: Group
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: testimonials.default.primary.reviews[]
+	 * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+	 */
+	reviews: prismic.GroupField<Simplify<TestimonialsSliceDefaultPrimaryReviewsItem>>;
+	
+	/**
+	 * Footnote under the cards field in *Testimonials → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: testimonials.default.primary.footnote
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	footnote: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for Testimonials Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type TestimonialsSliceDefault = prismic.SharedSliceVariation<"default", Simplify<TestimonialsSliceDefaultPrimary>, never>;
+
+/**
+ * Slice variation for *Testimonials*
+ */
+type TestimonialsSliceVariation = TestimonialsSliceDefault
+
+/**
+ * Testimonials Shared Slice
+ *
+ * - **API ID**: `testimonials`
+ * - **Description**: *None*
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type TestimonialsSlice = prismic.SharedSlice<"testimonials", TestimonialsSliceVariation>;
+
 declare module "@prismicio/client" {
 	interface CreateClient {
 		(repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
@@ -993,6 +1199,11 @@ declare module "@prismicio/client" {
 			HeroSliceDefaultPrimary,
 			HeroSliceVariation,
 			HeroSliceDefault,
+			HowItWorksSlice,
+			HowItWorksSliceDefaultPrimaryStepsItem,
+			HowItWorksSliceDefaultPrimary,
+			HowItWorksSliceVariation,
+			HowItWorksSliceDefault,
 			RealEstateSlice,
 			RealEstateSliceDefaultPrimaryKeysItem,
 			RealEstateSliceDefaultPrimary,
@@ -1007,7 +1218,12 @@ declare module "@prismicio/client" {
 			ServicesSliceDefaultPrimaryCardsItem,
 			ServicesSliceDefaultPrimary,
 			ServicesSliceVariation,
-			ServicesSliceDefault
+			ServicesSliceDefault,
+			TestimonialsSlice,
+			TestimonialsSliceDefaultPrimaryReviewsItem,
+			TestimonialsSliceDefaultPrimary,
+			TestimonialsSliceVariation,
+			TestimonialsSliceDefault
 		}
 	}
 }

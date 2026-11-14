@@ -1,0 +1,50 @@
+{
+  "id": "how_it_works",
+  "name": "How It Works",
+  "type": "SharedSlice",
+  "variations": [
+    {
+      "description": "Default",
+      "docURL": "",
+      "id": "default",
+      "imageUrl": "",
+      "name": "Default",
+      "primary": {
+        "eyebrow": {
+          "config": {
+            "label": "Eyebrow"
+          },
+          "type": "Text"
+        },
+        "title": {
+          "config": {
+            "label": "Title (italic = coral)",
+            "single": "heading2,em"
+          },
+          "type": "StructuredText"
+        },
+        "steps": {
+          "config": {
+            "fields": {
+              "title": {
+                "config": {
+                  "label": "Step title"
+                },
+                "type": "Text"
+              },
+              "text": {
+                "config": {
+                  "label": "Step text"
+                },
+                "type": "Text"
+              }
+            },
+            "label": "Steps"
+          },
+          "type": "Group"
+        }
+      },
+      "version": ""
+    }
+  ]
+}

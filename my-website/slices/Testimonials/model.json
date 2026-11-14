@@ -1,0 +1,80 @@
+{
+  "id": "testimonials",
+  "name": "Testimonials",
+  "type": "SharedSlice",
+  "variations": [
+    {
+      "description": "Default",
+      "docURL": "",
+      "id": "default",
+      "imageUrl": "",
+      "name": "Default",
+      "primary": {
+        "eyebrow": {
+          "config": {
+            "label": "Eyebrow"
+          },
+          "type": "Text"
+        },
+        "title": {
+          "config": {
+            "label": "Title (italic = coral)",
+            "single": "heading2,em"
+          },
+          "type": "StructuredText"
+        },
+        "lead": {
+          "config": {
+            "label": "Intro text",
+            "single": "paragraph"
+          },
+          "type": "StructuredText"
+        },
+        "reviews": {
+          "config": {
+            "fields": {
+              "tag": {
+                "config": {
+                  "label": "Tag (e.g. EXAMPLE; clear for real reviews)"
+                },
+                "type": "Text"
+              },
+              "quote": {
+                "config": {
+                  "label": "Quote (no quotation marks)"
+                },
+                "type": "Text"
+              },
+              "stars": {
+                "config": {
+                  "label": "Stars",
+                  "options": [
+                    "5",
+                    "4",
+                    "3"
+                  ]
+                },
+                "type": "Select"
+              },
+              "who": {
+                "config": {
+                  "label": "Name and trip"
+                },
+                "type": "Text"
+              }
+            },
+            "label": "Reviews"
+          },
+          "type": "Group"
+        },
+        "footnote": {
+          "config": {
+            "label": "Footnote under the cards"
+          },
+          "type": "Text"
+        }
+      },
+      "version": ""
+    }
+  ]
+}
