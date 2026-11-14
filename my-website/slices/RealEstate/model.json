@@ -1,0 +1,86 @@
+{
+  "id": "real_estate",
+  "name": "Real Estate",
+  "type": "SharedSlice",
+  "variations": [
+    {
+      "description": "Default",
+      "docURL": "",
+      "id": "default",
+      "imageUrl": "",
+      "name": "Default",
+      "primary": {
+        "bg_photo": {
+          "config": {
+            "label": "Background photo"
+          },
+          "type": "Image"
+        },
+        "eyebrow": {
+          "config": {
+            "label": "Eyebrow"
+          },
+          "type": "Text"
+        },
+        "heading": {
+          "config": {
+            "label": "Heading (italic = highlight)",
+            "single": "heading2,em"
+          },
+          "type": "StructuredText"
+        },
+        "body": {
+          "config": {
+            "label": "Paragraph",
+            "single": "paragraph"
+          },
+          "type": "StructuredText"
+        },
+        "button_label": {
+          "config": {
+            "label": "Button label"
+          },
+          "type": "Text"
+        },
+        "small_note": {
+          "config": {
+            "label": "Small note under button"
+          },
+          "type": "Text"
+        },
+        "keys": {
+          "config": {
+            "fields": {
+              "icon": {
+                "config": {
+                  "label": "Icon",
+                  "options": [
+                    "pin",
+                    "key",
+                    "home"
+                  ]
+                },
+                "type": "Select"
+              },
+              "title": {
+                "config": {
+                  "label": "Title"
+                },
+                "type": "Text"
+              },
+              "text": {
+                "config": {
+                  "label": "Text"
+                },
+                "type": "Text"
+              }
+            },
+            "label": "Three key points"
+          },
+          "type": "Group"
+        }
+      },
+      "version": ""
+    }
+  ]
+}

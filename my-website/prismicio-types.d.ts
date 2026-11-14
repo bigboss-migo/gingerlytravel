@@ -46,7 +46,7 @@ type ContentRelationshipFieldWithData<
 		>
 }[Exclude<TCustomType[number], string>["id"]];
 
-type HomepageDocumentDataSlicesSlice = HeroSlice | ServicesSlice | RibbonSlice | DestinationsSlice
+type HomepageDocumentDataSlicesSlice = HeroSlice | ServicesSlice | RibbonSlice | DestinationsSlice | RealEstateSlice | EbookSlice
 
 /**
  * Content for Homepage documents
@@ -379,6 +379,149 @@ type DestinationsSliceVariation = DestinationsSliceDefault
 export type DestinationsSlice = prismic.SharedSlice<"destinations", DestinationsSliceVariation>;
 
 /**
+ * Item in *Ebook → Default → Primary → Bullet list*
+ */
+export interface EbookSliceDefaultPrimaryBulletsItem {
+	/**
+	 * Bullet field in *Ebook → Default → Primary → Bullet list*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: ebook.default.primary.bullets[].text
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	text: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *Ebook → Default → Primary*
+ */
+export interface EbookSliceDefaultPrimary {
+	/**
+	 * Cover image field in *Ebook → Default → Primary*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: ebook.default.primary.cover
+	 * - **Documentation**: https://prismic.io/docs/fields/image
+	 */
+	cover: prismic.ImageField<never>;
+	
+	/**
+	 * Badge, top word field in *Ebook → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: ebook.default.primary.badge_top
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	badge_top: prismic.KeyTextField;
+	
+	/**
+	 * Badge, bottom word field in *Ebook → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: ebook.default.primary.badge_bottom
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	badge_bottom: prismic.KeyTextField;
+	
+	/**
+	 * Eyebrow field in *Ebook → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: ebook.default.primary.eyebrow
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	eyebrow: prismic.KeyTextField;
+	
+	/**
+	 * Heading (italic = coral) field in *Ebook → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: ebook.default.primary.heading
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	heading: prismic.RichTextField;
+	
+	/**
+	 * Intro field in *Ebook → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: ebook.default.primary.intro
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	intro: prismic.RichTextField;
+	
+	/**
+	 * Bullet list field in *Ebook → Default → Primary*
+	 *
+	 * - **Field Type**: Group
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: ebook.default.primary.bullets[]
+	 * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+	 */
+	bullets: prismic.GroupField<Simplify<EbookSliceDefaultPrimaryBulletsItem>>;
+	
+	/**
+	 * Ebook PDF field in *Ebook → Default → Primary*
+	 *
+	 * - **Field Type**: Link to Media
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: ebook.default.primary.pdf
+	 * - **Documentation**: https://prismic.io/docs/fields/link-to-media
+	 */
+	pdf: prismic.LinkToMediaField<prismic.FieldState, never>;
+	
+	/**
+	 * Button label field in *Ebook → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: ebook.default.primary.button_label
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	button_label: prismic.KeyTextField;
+	
+	/**
+	 * Small line under button field in *Ebook → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: ebook.default.primary.meta_line
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	meta_line: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for Ebook Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type EbookSliceDefault = prismic.SharedSliceVariation<"default", Simplify<EbookSliceDefaultPrimary>, never>;
+
+/**
+ * Slice variation for *Ebook*
+ */
+type EbookSliceVariation = EbookSliceDefault
+
+/**
+ * Ebook Shared Slice
+ *
+ * - **API ID**: `ebook`
+ * - **Description**: *None*
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type EbookSlice = prismic.SharedSlice<"ebook", EbookSliceVariation>;
+
+/**
  * Primary content in *Hero → Default → Primary*
  */
 export interface HeroSliceDefaultPrimary {
@@ -505,6 +648,139 @@ type HeroSliceVariation = HeroSliceDefault
  * - **Documentation**: https://prismic.io/docs/slices
  */
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
+
+/**
+ * Item in *Real Estate → Default → Primary → Three key points*
+ */
+export interface RealEstateSliceDefaultPrimaryKeysItem {
+	/**
+	 * Icon field in *Real Estate → Default → Primary → Three key points*
+	 *
+	 * - **Field Type**: Select
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: real_estate.default.primary.keys[].icon
+	 * - **Documentation**: https://prismic.io/docs/fields/select
+	 */
+	icon: prismic.SelectField<"pin" | "key" | "home">;
+	
+	/**
+	 * Title field in *Real Estate → Default → Primary → Three key points*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: real_estate.default.primary.keys[].title
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	title: prismic.KeyTextField;
+	
+	/**
+	 * Text field in *Real Estate → Default → Primary → Three key points*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: real_estate.default.primary.keys[].text
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	text: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *Real Estate → Default → Primary*
+ */
+export interface RealEstateSliceDefaultPrimary {
+	/**
+	 * Background photo field in *Real Estate → Default → Primary*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: real_estate.default.primary.bg_photo
+	 * - **Documentation**: https://prismic.io/docs/fields/image
+	 */
+	bg_photo: prismic.ImageField<never>;
+	
+	/**
+	 * Eyebrow field in *Real Estate → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: real_estate.default.primary.eyebrow
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	eyebrow: prismic.KeyTextField;
+	
+	/**
+	 * Heading (italic = highlight) field in *Real Estate → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: real_estate.default.primary.heading
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	heading: prismic.RichTextField;
+	
+	/**
+	 * Paragraph field in *Real Estate → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: real_estate.default.primary.body
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	body: prismic.RichTextField;
+	
+	/**
+	 * Button label field in *Real Estate → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: real_estate.default.primary.button_label
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	button_label: prismic.KeyTextField;
+	
+	/**
+	 * Small note under button field in *Real Estate → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: real_estate.default.primary.small_note
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	small_note: prismic.KeyTextField;
+	
+	/**
+	 * Three key points field in *Real Estate → Default → Primary*
+	 *
+	 * - **Field Type**: Group
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: real_estate.default.primary.keys[]
+	 * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+	 */
+	keys: prismic.GroupField<Simplify<RealEstateSliceDefaultPrimaryKeysItem>>;
+}
+
+/**
+ * Default variation for Real Estate Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type RealEstateSliceDefault = prismic.SharedSliceVariation<"default", Simplify<RealEstateSliceDefaultPrimary>, never>;
+
+/**
+ * Slice variation for *Real Estate*
+ */
+type RealEstateSliceVariation = RealEstateSliceDefault
+
+/**
+ * Real Estate Shared Slice
+ *
+ * - **API ID**: `real_estate`
+ * - **Description**: *None*
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type RealEstateSlice = prismic.SharedSlice<"real_estate", RealEstateSliceVariation>;
 
 /**
  * Item in *Ribbon → Default → Primary → Keywords*
@@ -708,10 +984,20 @@ declare module "@prismicio/client" {
 			DestinationsSliceDefaultPrimary,
 			DestinationsSliceVariation,
 			DestinationsSliceDefault,
+			EbookSlice,
+			EbookSliceDefaultPrimaryBulletsItem,
+			EbookSliceDefaultPrimary,
+			EbookSliceVariation,
+			EbookSliceDefault,
 			HeroSlice,
 			HeroSliceDefaultPrimary,
 			HeroSliceVariation,
 			HeroSliceDefault,
+			RealEstateSlice,
+			RealEstateSliceDefaultPrimaryKeysItem,
+			RealEstateSliceDefaultPrimary,
+			RealEstateSliceVariation,
+			RealEstateSliceDefault,
 			RibbonSlice,
 			RibbonSliceDefaultPrimaryKeywordsItem,
 			RibbonSliceDefaultPrimary,

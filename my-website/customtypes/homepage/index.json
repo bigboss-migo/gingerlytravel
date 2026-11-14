@@ -17,6 +17,12 @@
             },
             "destinations": {
               "type": "SharedSlice"
+            },
+            "real_estate": {
+              "type": "SharedSlice"
+            },
+            "ebook": {
+              "type": "SharedSlice"
             }
           }
         },

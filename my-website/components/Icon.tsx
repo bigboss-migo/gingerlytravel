@@ -15,7 +15,12 @@ const PATHS: Record<string, ReactNode> = {
   hotel: <path d="M2 18v-8M2 14h20v4M22 18v-5a3 3 0 0 0-3-3h-8v4M6 10h.01" />,
   pin: <path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11zM12 12a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" />,
   home: <path d="m3 11 9-8 9 8M5 10v10h14V10M10 20v-6h4v6" />,
-  key: <path d="M12.5 12.3 20 4.8M17 6l3 3M14 9l2 2M7.5 11a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9z" />,
+  key: (
+  <>
+    <circle cx="7.5" cy="15.5" r="4.5" />
+    <path d="m10.7 12.3 9.3-9.3M17 6l3 3M14 9l2 2" />
+  </>
+),
   download: <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />,
 };
 

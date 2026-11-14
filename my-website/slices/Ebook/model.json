@@ -1,0 +1,88 @@
+{
+  "id": "ebook",
+  "name": "Ebook",
+  "type": "SharedSlice",
+  "variations": [
+    {
+      "description": "Default",
+      "docURL": "",
+      "id": "default",
+      "imageUrl": "",
+      "name": "Default",
+      "primary": {
+        "cover": {
+          "config": {
+            "label": "Cover image"
+          },
+          "type": "Image"
+        },
+        "badge_top": {
+          "config": {
+            "label": "Badge, top word"
+          },
+          "type": "Text"
+        },
+        "badge_bottom": {
+          "config": {
+            "label": "Badge, bottom word"
+          },
+          "type": "Text"
+        },
+        "eyebrow": {
+          "config": {
+            "label": "Eyebrow"
+          },
+          "type": "Text"
+        },
+        "heading": {
+          "config": {
+            "label": "Heading (italic = coral)",
+            "single": "heading2,em"
+          },
+          "type": "StructuredText"
+        },
+        "intro": {
+          "config": {
+            "label": "Intro",
+            "single": "paragraph"
+          },
+          "type": "StructuredText"
+        },
+        "bullets": {
+          "config": {
+            "fields": {
+              "text": {
+                "config": {
+                  "label": "Bullet"
+                },
+                "type": "Text"
+              }
+            },
+            "label": "Bullet list"
+          },
+          "type": "Group"
+        },
+        "pdf": {
+          "config": {
+            "label": "Ebook PDF",
+            "select": "media"
+          },
+          "type": "Link"
+        },
+        "button_label": {
+          "config": {
+            "label": "Button label"
+          },
+          "type": "Text"
+        },
+        "meta_line": {
+          "config": {
+            "label": "Small line under button"
+          },
+          "type": "Text"
+        }
+      },
+      "version": ""
+    }
+  ]
+}
