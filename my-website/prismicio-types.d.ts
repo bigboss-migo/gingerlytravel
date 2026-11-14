@@ -46,7 +46,7 @@ type ContentRelationshipFieldWithData<
 		>
 }[Exclude<TCustomType[number], string>["id"]];
 
-type HomepageDocumentDataSlicesSlice = never
+type HomepageDocumentDataSlicesSlice = HeroSlice
 
 /**
  * Content for Homepage documents
@@ -245,6 +245,134 @@ export type SettingsDocument<Lang extends string = string> = prismic.PrismicDocu
 
 export type AllDocumentTypes = HomepageDocument | SettingsDocument;
 
+/**
+ * Primary content in *Hero → Default → Primary*
+ */
+export interface HeroSliceDefaultPrimary {
+	/**
+	 * Small heading above the title field in *Hero → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: hero.default.primary.eyebrow
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	eyebrow: prismic.KeyTextField;
+	
+	/**
+	 * Headline (italic = orange word, bold = blue word) field in *Hero → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: hero.default.primary.headline
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	headline: prismic.RichTextField;
+	
+	/**
+	 * Intro text field in *Hero → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: hero.default.primary.subtext
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	subtext: prismic.KeyTextField;
+	
+	/**
+	 * Main button text field in *Hero → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: hero.default.primary.primary_button_label
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	primary_button_label: prismic.KeyTextField;
+	
+	/**
+	 * Second button text field in *Hero → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: hero.default.primary.secondary_button_label
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	secondary_button_label: prismic.KeyTextField;
+	
+	/**
+	 * Callout (bold part) field in *Hero → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: hero.default.primary.hook_bold
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	hook_bold: prismic.KeyTextField;
+	
+	/**
+	 * Callout (rest of sentence) field in *Hero → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: hero.default.primary.hook_text
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	hook_text: prismic.KeyTextField;
+	
+	/**
+	 * Portrait photo field in *Hero → Default → Primary*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: hero.default.primary.portrait
+	 * - **Documentation**: https://prismic.io/docs/fields/image
+	 */
+	portrait: prismic.ImageField<never>;
+	
+	/**
+	 * Badge title field in *Hero → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: hero.default.primary.badge_title
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	badge_title: prismic.KeyTextField;
+	
+	/**
+	 * Badge subtitle field in *Hero → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: hero.default.primary.badge_subtitle
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	badge_subtitle: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for Hero Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type HeroSliceDefault = prismic.SharedSliceVariation<"default", Simplify<HeroSliceDefaultPrimary>, never>;
+
+/**
+ * Slice variation for *Hero*
+ */
+type HeroSliceVariation = HeroSliceDefault
+
+/**
+ * Hero Shared Slice
+ *
+ * - **API ID**: `hero`
+ * - **Description**: *None*
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
+
 declare module "@prismicio/client" {
 	interface CreateClient {
 		(repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
@@ -265,7 +393,11 @@ declare module "@prismicio/client" {
 			HomepageDocumentDataSlicesSlice,
 			SettingsDocument,
 			SettingsDocumentData,
-			AllDocumentTypes
+			AllDocumentTypes,
+			HeroSlice,
+			HeroSliceDefaultPrimary,
+			HeroSliceVariation,
+			HeroSliceDefault
 		}
 	}
 }

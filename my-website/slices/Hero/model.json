@@ -1,0 +1,78 @@
+{
+  "id": "hero",
+  "name": "Hero",
+  "type": "SharedSlice",
+  "variations": [
+    {
+      "description": "Default",
+      "docURL": "",
+      "id": "default",
+      "imageUrl": "",
+      "name": "Default",
+      "primary": {
+        "eyebrow": {
+          "config": {
+            "label": "Small heading above the title"
+          },
+          "type": "Text"
+        },
+        "headline": {
+          "config": {
+            "label": "Headline (italic = orange word, bold = blue word)",
+            "single": "heading1,strong,em"
+          },
+          "type": "StructuredText"
+        },
+        "subtext": {
+          "config": {
+            "label": "Intro text"
+          },
+          "type": "Text"
+        },
+        "primary_button_label": {
+          "config": {
+            "label": "Main button text"
+          },
+          "type": "Text"
+        },
+        "secondary_button_label": {
+          "config": {
+            "label": "Second button text"
+          },
+          "type": "Text"
+        },
+        "hook_bold": {
+          "config": {
+            "label": "Callout (bold part)"
+          },
+          "type": "Text"
+        },
+        "hook_text": {
+          "config": {
+            "label": "Callout (rest of sentence)"
+          },
+          "type": "Text"
+        },
+        "portrait": {
+          "config": {
+            "label": "Portrait photo"
+          },
+          "type": "Image"
+        },
+        "badge_title": {
+          "config": {
+            "label": "Badge title"
+          },
+          "type": "Text"
+        },
+        "badge_subtitle": {
+          "config": {
+            "label": "Badge subtitle"
+          },
+          "type": "Text"
+        }
+      },
+      "version": ""
+    }
+  ]
+}
