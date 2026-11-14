@@ -1,6 +1,4 @@
-import { FC } from "react";
-import { Content } from "@prismicio/client";
-impimport type { Content } from "@prismicio/client";
+import type { Content } from "@prismicio/client";
 import { PrismicRichText, type SliceComponentProps } from "@prismicio/react";
 
 export type TestimonialsProps = SliceComponentProps<Content.TestimonialsSlice>;
