@@ -46,7 +46,7 @@ type ContentRelationshipFieldWithData<
 		>
 }[Exclude<TCustomType[number], string>["id"]];
 
-type HomepageDocumentDataSlicesSlice = HeroSlice | ServicesSlice | RibbonSlice | DestinationsSlice | RealEstateSlice | EbookSlice | HowItWorksSlice | TestimonialsSlice
+type HomepageDocumentDataSlicesSlice = HeroSlice | ServicesSlice | RibbonSlice | DestinationsSlice | RealEstateSlice | EbookSlice | HowItWorksSlice | TestimonialsSlice | SpotlightSlice
 
 /**
  * Content for Homepage documents
@@ -1042,6 +1042,139 @@ type ServicesSliceVariation = ServicesSliceDefault
 export type ServicesSlice = prismic.SharedSlice<"services", ServicesSliceVariation>;
 
 /**
+ * Item in *Spotlight → Default → Primary → Small cards (optional, up to 3)*
+ */
+export interface SpotlightSliceDefaultPrimaryPillarsItem {
+	/**
+	 * Title field in *Spotlight → Default → Primary → Small cards (optional, up to 3)*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: spotlight.default.primary.pillars[].title
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	title: prismic.KeyTextField;
+	
+	/**
+	 * Text field in *Spotlight → Default → Primary → Small cards (optional, up to 3)*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: spotlight.default.primary.pillars[].text
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	text: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *Spotlight → Default → Primary*
+ */
+export interface SpotlightSliceDefaultPrimary {
+	/**
+	 * Main photo field in *Spotlight → Default → Primary*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: spotlight.default.primary.main_photo
+	 * - **Documentation**: https://prismic.io/docs/fields/image
+	 */
+	main_photo: prismic.ImageField<never>;
+	
+	/**
+	 * Small photo field in *Spotlight → Default → Primary*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: spotlight.default.primary.mini_photo
+	 * - **Documentation**: https://prismic.io/docs/fields/image
+	 */
+	mini_photo: prismic.ImageField<never>;
+	
+	/**
+	 * Script tag on photo field in *Spotlight → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: spotlight.default.primary.signature
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	signature: prismic.KeyTextField;
+	
+	/**
+	 * Eyebrow field in *Spotlight → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: spotlight.default.primary.eyebrow
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	eyebrow: prismic.KeyTextField;
+	
+	/**
+	 * Heading (italic = coral) field in *Spotlight → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: spotlight.default.primary.heading
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	heading: prismic.RichTextField;
+	
+	/**
+	 * Paragraphs field in *Spotlight → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: spotlight.default.primary.body
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	body: prismic.RichTextField;
+	
+	/**
+	 * Small cards (optional, up to 3) field in *Spotlight → Default → Primary*
+	 *
+	 * - **Field Type**: Group
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: spotlight.default.primary.pillars[]
+	 * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+	 */
+	pillars: prismic.GroupField<Simplify<SpotlightSliceDefaultPrimaryPillarsItem>>;
+	
+	/**
+	 * Button label (optional) field in *Spotlight → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: spotlight.default.primary.button_label
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	button_label: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for Spotlight Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type SpotlightSliceDefault = prismic.SharedSliceVariation<"default", Simplify<SpotlightSliceDefaultPrimary>, never>;
+
+/**
+ * Slice variation for *Spotlight*
+ */
+type SpotlightSliceVariation = SpotlightSliceDefault
+
+/**
+ * Spotlight Shared Slice
+ *
+ * - **API ID**: `spotlight`
+ * - **Description**: *None*
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type SpotlightSlice = prismic.SharedSlice<"spotlight", SpotlightSliceVariation>;
+
+/**
  * Item in *Testimonials → Default → Primary → Reviews*
  */
 export interface TestimonialsSliceDefaultPrimaryReviewsItem {
@@ -1219,6 +1352,11 @@ declare module "@prismicio/client" {
 			ServicesSliceDefaultPrimary,
 			ServicesSliceVariation,
 			ServicesSliceDefault,
+			SpotlightSlice,
+			SpotlightSliceDefaultPrimaryPillarsItem,
+			SpotlightSliceDefaultPrimary,
+			SpotlightSliceVariation,
+			SpotlightSliceDefault,
 			TestimonialsSlice,
 			TestimonialsSliceDefaultPrimaryReviewsItem,
 			TestimonialsSliceDefaultPrimary,

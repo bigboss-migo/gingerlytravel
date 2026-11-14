@@ -29,6 +29,9 @@
             },
             "testimonials": {
               "type": "SharedSlice"
+            },
+            "spotlight": {
+              "type": "SharedSlice"
             }
           }
         },

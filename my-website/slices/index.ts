@@ -7,6 +7,7 @@ import HowItWorks from "./HowItWorks";
 import RealEstate from "./RealEstate";
 import Ribbon from "./Ribbon";
 import Services from "./Services";
+import Spotlight from "./Spotlight";
 import Testimonials from "./Testimonials";
 
 export const components = {
@@ -17,5 +18,6 @@ export const components = {
 	real_estate: RealEstate,
 	ribbon: Ribbon,
 	services: Services,
+	spotlight: Spotlight,
 	testimonials: Testimonials
 };
