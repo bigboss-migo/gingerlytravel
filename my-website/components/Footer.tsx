@@ -68,7 +68,7 @@ export default async function Footer() {
       </footer>
       <div className="mbar">
         <a className="c" href={tel}>
-          Call Lynette
+          Call Carolyn
         </a>
         <a className="b" href="#contact">
           {d?.nav_button_label ?? "Book Travel"}
