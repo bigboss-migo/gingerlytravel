@@ -9,6 +9,7 @@ export type ContactProps = SliceComponentProps<Content.ContactSlice>;
 const Contact = async ({ slice }: ContactProps) => {
   const p = slice.primary;
   const settings = await getSettings();
+  if (!settings) return null;
   const s = settings.data;
 
   const phone = s.phone ?? "";
