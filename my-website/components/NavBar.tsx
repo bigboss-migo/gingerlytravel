@@ -6,7 +6,6 @@ const LINKS = [
   { href: "#services", label: "Services" },
   { href: "#destinations", label: "Destinations" },
   { href: "#home", label: "Real Estate" },
-  { href: "#group", label: "Group Trips" },
   { href: "#ebook", label: "Free Ebook" },
   { href: "#about", label: "Meet Carolyn" },
 ];

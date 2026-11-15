@@ -1,0 +1,81 @@
+{
+  "id": "spotlight",
+  "name": "Spotlight",
+  "type": "SharedSlice",
+  "variations": [
+    {
+      "description": "Default",
+      "docURL": "",
+      "id": "default",
+      "imageUrl": "",
+      "name": "Default",
+      "primary": {
+        "main_photo": {
+          "config": {
+            "label": "Main photo"
+          },
+          "type": "Image"
+        },
+        "mini_photo": {
+          "config": {
+            "label": "Small photo"
+          },
+          "type": "Image"
+        },
+        "signature": {
+          "config": {
+            "label": "Script tag on photo"
+          },
+          "type": "Text"
+        },
+        "eyebrow": {
+          "config": {
+            "label": "Eyebrow"
+          },
+          "type": "Text"
+        },
+        "heading": {
+          "config": {
+            "label": "Heading (italic = coral)",
+            "single": "heading2,em"
+          },
+          "type": "StructuredText"
+        },
+        "body": {
+          "config": {
+            "label": "Paragraphs",
+            "multi": "paragraph"
+          },
+          "type": "StructuredText"
+        },
+        "pillars": {
+          "config": {
+            "fields": {
+              "title": {
+                "config": {
+                  "label": "Title"
+                },
+                "type": "Text"
+              },
+              "text": {
+                "config": {
+                  "label": "Text"
+                },
+                "type": "Text"
+              }
+            },
+            "label": "Small cards (optional, up to 3)"
+          },
+          "type": "Group"
+        },
+        "button_label": {
+          "config": {
+            "label": "Button label (optional)"
+          },
+          "type": "Text"
+        }
+      },
+      "version": ""
+    }
+  ]
+}
